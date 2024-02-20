@@ -1,0 +1,59 @@
+1. Используя команду cat в терминале операционной системы Linux, создать
+два файла Домашние животные (заполнив файл собаками, кошками,
+хомяками) и Вьючные животными заполнив файл Лошадьми, верблюдами и
+ослы), а затем объединить их. Просмотреть содержимое созданного файла.
+Переименовать файл, дав ему новое имя (Друзья человека).
+
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ cat > Pets.txt
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ cat Pets.txt
+Pasha Cat
+Bobik Dog
+Busia Cat
+Melkii hamster
+Crug hamster
+Sharic Dog
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ cat > 'Pack animals.txt'
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ cat 'Pack animals.txt'
+Thunder Hourse
+Sandy Camal
+Blaze Donkey
+Storm Horse
+Sahara Camel
+Chaky Horse
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ cat Pets.txt 'Pack animals.txt' > 'Друзья человека'.txt
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ cat 'Друзья человека'.txt
+Pasha Cat
+Bobik Dog
+Busia Cat
+Melkii hamster
+Crug hamster
+Sharic Dog
+Thunder Hourse
+Sandy Camal
+Blaze Donkey
+Storm Horse
+Sahara Camel
+Chaky Horse
+
+2. Создать директорию, переместить файл туда
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ mkdir HomeAnimals
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ mv 'Друзья человека.txt' HomeAnimals/
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ cd HomeAnimals/
+ildus@ildus-linux:~/shared/ItogKontrol2/HomeAnimals$ ll
+итого 5
+drwxrwx--- 1 root vboxsf    0 фев 20 21:06  ./
+drwxrwx--- 1 root vboxsf 4096 фев 20 21:06  ../
+-rwxrwx--- 1 root vboxsf  146 фев 20 20:58 'Друзья человека.txt'*
+
+
+
+
