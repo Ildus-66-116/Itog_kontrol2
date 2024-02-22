@@ -78,6 +78,7 @@ CREATE TABLE Equus (
     length DECIMAL(5, 2)
 );
 
+
 INSERT INTO Equus (animal_id, breed, color, height, length)
 SELECT H.animal_id, H.breed, H.color, D.height, D.length
 FROM Horse H
@@ -95,8 +96,12 @@ CREATE TABLE YoungAnimals (
     age_months INT
 );
 
+UPDATE Animal SET birthdate = '2021-08-15'
+WHERE name = 'cat';
+
+
 INSERT INTO YoungAnimals (animal_id, name, birthdate, age_months)
 SELECT A.animal_id, A.name, A.birthdate, TIMESTAMPDIFF(MONTH, A.birthdate, CURDATE()) AS age_months
 FROM Animal A
 WHERE TIMESTAMPDIFF(YEAR, A.birthdate, CURDATE()) < 3
-AND TIMESTAMPDIFF(YEAR, A.birthdate, CURDATE()) > 1;
+AND TIMESTAMPDIFF(YEAR, A.birthdate, CURDATE())> 1;
