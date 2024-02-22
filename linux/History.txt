@@ -1,0 +1,111 @@
+1. Используя команду cat в терминале операционной системы Linux, создать
+два файла Домашние животные (заполнив файл собаками, кошками,
+хомяками) и Вьючные животными заполнив файл Лошадьми, верблюдами и
+ослы), а затем объединить их. Просмотреть содержимое созданного файла.
+Переименовать файл, дав ему новое имя (Друзья человека).
+
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ cat > Pets.txt
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ cat Pets.txt
+Pasha Cat
+Bobik Dog
+Busia Cat
+Melkii hamster
+Crug hamster
+Sharic Dog
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ cat > 'Pack animals.txt'
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ cat 'Pack animals.txt'
+Thunder Hourse
+Sandy Camal
+Blaze Donkey
+Storm Horse
+Sahara Camel
+Chaky Horse
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ cat Pets.txt 'Pack animals.txt' > 'Друзья человека'.txt
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ cat 'Друзья человека'.txt
+Pasha Cat
+Bobik Dog
+Busia Cat
+Melkii hamster
+Crug hamster
+Sharic Dog
+Thunder Hourse
+Sandy Camal
+Blaze Donkey
+Storm Horse
+Sahara Camel
+Chaky Horse
+
+2. Создать директорию, переместить файл туда
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ mkdir HomeAnimals
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ mv 'Друзья человека.txt' HomeAnimals/
+
+ildus@ildus-linux:~/shared/ItogKontrol2$ cd HomeAnimals/
+ildus@ildus-linux:~/shared/ItogKontrol2/HomeAnimals$ ll
+итого 5
+drwxrwx--- 1 root vboxsf    0 фев 20 21:06  ./
+drwxrwx--- 1 root vboxsf 4096 фев 20 21:06  ../
+-rwxrwx--- 1 root vboxsf  146 фев 20 20:58 'Друзья человека.txt'*
+
+3. Подключить дополнительный репозиторий MySQL. Установить любой пакет
+из этого репозитория.
+
+ildus@ildus-linux:~/shared/ItogKontrol2/HomeAnimals$ wget https://dev.mysql.com/get/mysql-apt-config_0.8.28-1_all.deb
+--2024-02-20 21:10:54--  https://dev.mysql.com/get/mysql-apt-config_0.8.28-1_all.deb
+Распознаётся dev.mysql.com (dev.mysql.com)… 23.65.116.35
+Подключение к dev.mysql.com (dev.mysql.com)|23.65.116.35|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 302 Moved Temporarily
+Адрес: https://repo.mysql.com//mysql-apt-config_0.8.28-1_all.deb [переход]
+--2024-02-20 21:10:55--  https://repo.mysql.com//mysql-apt-config_0.8.28-1_all.deb
+Распознаётся repo.mysql.com (repo.mysql.com)… 23.37.58.58
+Подключение к repo.mysql.com (repo.mysql.com)|23.37.58.58|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 18124 (18K) [application/x-debian-package]
+Сохранение в: ‘mysql-apt-config_0.8.28-1_all.deb’
+
+mysql-apt-config_0.8.28-1_all. 100%[==================================================>]  17,70K  --.-KB/s    за 0,001s
+
+2024-02-20 21:10:55 (16,0 MB/s) - ‘mysql-apt-config_0.8.28-1_all.deb’ сохранён [18124/18124]
+
+4. Установить и удалить deb-пакет с помощью dpkg.
+
+ildus@ildus-linux:~$ sudo dpkg -i mysql-apt-config_0.8.28-1_all.deb
+(Чтение базы данных … на данный момент установлено 193963 файла и каталога.)
+Подготовка к распаковке mysql-apt-config_0.8.28-1_all.deb …
+Распаковывается mysql-apt-config (0.8.28-1) на замену (0.8.28-1) …
+Настраивается пакет mysql-apt-config (0.8.28-1) …
+
+5. Выложить историю команд в терминале ubuntu
+
+1296  cd /shared/ItogKontrol2
+ 1297  cd shared/ItogKontrol2
+ 1298  cat > Pets.txt
+ 1299  cat  Pets.txt
+ 1300  cat > 'Pack animals.txt'
+ 1301  cat  'Pack animals.txt'
+ 1302  cat Pets.txt 'Pack animals.txt' > 'Друзья человека'.txt
+ 1303  cat 'Друзья человека'.txt
+ 1304  mkdir HomeAnimals
+ 1305  cd HomeAnimals
+ 1306  ll
+ 1307  wget https://dev.mysql.com/get/mysql-apt-config_0.8.28-1_all.deb
+ 1308  ll
+ 1309  rm mysql-apt-config_0.8.28-1_all.deb.1
+ 1310  sudo dpkg -i mysql-apt-config_0.8.28-1_all.deb
+ 1311  history
+
+6. Нарисовать диаграмму, в которой есть класс родительский класс, домашние
+животные и вьючные животные, в составы которых в случае домашних
+животных войдут классы: собаки, кошки, хомяки, а в класс вьючные животные
+войдут: Лошади, верблюды и ослы).
+ 
+
+
+
