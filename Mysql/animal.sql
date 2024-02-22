@@ -63,3 +63,40 @@ INSERT INTO Camel (animal_id, hump_number, speed, endurance) VALUES (1, 1, 20, 1
 INSERT INTO Camel (animal_id, hump_number, speed, endurance) VALUES (2, 2, 15, 12);
 INSERT INTO Camel (animal_id, hump_number, speed, endurance) VALUES (3, 1, 18, 9);
 INSERT INTO Camel (animal_id, hump_number, speed, endurance) VALUES (4, 2, 16, 11);
+
+/*10. Удалив из таблицы верблюдов, т.к. верблюдов решили перевезти в другой
+питомник на зимовку. Объединить таблицы лошади, и ослы в одну таблицу.
+*/
+
+DELETE FROM Camel;
+
+CREATE TABLE Equus (
+    animal_id INT PRIMARY KEY REFERENCES Mammal(animal_id),
+    breed VARCHAR(50),
+    color VARCHAR(50),
+    height DECIMAL(5, 2),
+    length DECIMAL(5, 2)
+);
+
+INSERT INTO Equus (animal_id, breed, color, height, length)
+SELECT H.animal_id, H.breed, H.color, D.height, D.length
+FROM Horse H
+JOIN Donkey D ON H.animal_id = D.animal_id;
+
+/*11.Создать новую таблицу “молодые животные” в которую попадут все
+животные старше 1 года, но младше 3 лет и в отдельном столбце с точностью
+до месяца подсчитать возраст животных в новой таблице
+*/
+
+CREATE TABLE YoungAnimals (
+    animal_id INT PRIMARY KEY REFERENCES Animal(animal_id),
+    name VARCHAR(100),
+    birthdate DATE,
+    age_months INT
+);
+
+INSERT INTO YoungAnimals (animal_id, name, birthdate, age_months)
+SELECT A.animal_id, A.name, A.birthdate, TIMESTAMPDIFF(MONTH, A.birthdate, CURDATE()) AS age_months
+FROM Animal A
+WHERE TIMESTAMPDIFF(YEAR, A.birthdate, CURDATE()) < 3
+AND TIMESTAMPDIFF(YEAR, A.birthdate, CURDATE()) > 1;
